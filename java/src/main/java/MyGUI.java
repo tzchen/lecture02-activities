@@ -12,13 +12,30 @@ public class MyGUI extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton theButton = new JButton("Click me!");
+		theButton.addActionListener(new ActionListener() {
+	  	//class declaration goes in here!
 
+	  	public void actionPerformed(ActionEvent event) { 
+	  		System.out.println("You clicked me!");
+	  	}
+		});
 
+		JButton otherButton = new JButton("No, click me!");
+		otherButton.addActionListener(new ActionListener(){
+			//class body goes here
+			public void actionPerformed(ActionEvent e){
+				System.out.println("haha I win");
+			}
+		});
 
-
+		JPanel panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 		
-		this.add(theButton);
+		panel.add(theButton);
+		panel.add(otherButton);
 		
+		this.add(panel);
+				
 		this.pack();
 		this.setVisible(true);		
 	}
